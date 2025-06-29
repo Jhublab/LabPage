@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zybsnis QR</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <!-- CSS stilius -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- QR kodo biblioteka (turi būti prieš script.js) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+
+  <!-- JavaScript failas -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Zybsnis QR</h1>
+      <p>Greitas ir patogus QR kodų generatorius</p>
+    </header>
+
+    <main>
+      <div>
+        <label class="input-label" for="templateSelect">Pasirinkite šabloną</label>
+        <select id="templateSelect">
+          <option value="text">Laisvas tekstas</option>
+          <option value="wifi">Wi-Fi prisijungimas</option>
+          <option value="url">URL adresas</option>
+          <option value="email">El. paštas</option>
+          <option value="phone">Telefono numeris</option>
+          <option value="vcard">vCard (kontaktas)</option>
+        </select>
+      </div>
+
+      <div id="textInputs" class="template-inputs">
+        <label class="input-label" for="textInput">Įveskite tekstą</label>
+        <input type="text" id="textInput" placeholder="Įveskite tekstą ar URL">
+      </div>
+
+      <div id="wifiInputs" class="template-inputs" style="display: none;">
+        <label class="input-label" for="wifiSSID">Wi-Fi tinklo pavadinimas (SSID)</label>
+        <input type="text" id="wifiSSID" placeholder="Tinklo pavadinimas">
+        <label class="input-label" for="wifiPassword">Slaptažodis</label>
+        <input type="text" id="wifiPassword" placeholder="Slaptažodis">
+        <label class="input-label" for="wifiEncryption">Šifravimo tipas</label>
+        <select id="wifiEncryption">
+          <option value="WPA">WPA/WPA2</option>
+          <option value="WEP">WEP</option>
+          <option value="">Be šifravimo</option>
+        </select>
+      </div>
+
+      <div id="urlInputs" class="template-inputs" style="display: none;">
+        <label class="input-label" for="urlInput">Įveskite URL</label>
+        <input type="url" id="urlInput" placeholder="https://example.com">
+      </div>
+
+      <div id="emailInputs" class="template-inputs" style="display: none;">
+        <label class="input-label" for="emailInput">El. pašto adresas</label>
+        <input type="email" id="emailInput" placeholder="vardas@pavyzdys.lt">
+      </div>
+
+      <div id="phoneInputs" class="template-inputs" style="display: none;">
+        <label class="input-label" for="phoneInput">Telefono numeris</label>
+        <input type="tel" id="phoneInput" placeholder="+37012345678">
+      </div>
+
+      <div id="vcardInputs" class="template-inputs" style="display: none;">
+        <label class="input-label" for="vcardName">Vardas ir pavardė</label>
+        <input type="text" id="vcardName" placeholder="Vardas Pavardė">
+        <label class="input-label" for="vcardEmail">El. paštas</label>
+        <input type="email" id="vcardEmail" placeholder="vardas@pavyzdys.lt">
+        <label class="input-label" for="vcardPhone">Telefono numeris</label>
+        <input type="tel" id="vcardPhone" placeholder="+37012345678">
+      </div>
+
+      <div>
+        <label class="input-label" for="colorInput">Pasirinkite QR spalvą</label>
+        <input type="color" id="colorInput" value="#5ac8fa">
+      </div>
+
+      <div class="button-group">
+        <button class="btn-primary" id="generateBtn">Generuoti QR</button>
+        <button class="btn-secondary" id="downloadBtn" disabled>Parsisiųsti QR</button>
+      </div>
+
+      <div class="qr-container" id="qrCode"></div>
+    </main>
+
+    <footer>
+      © 2025 Zybsnis. Teisės saugomos.
+    </footer>
+  </div>
+</body>
+</html>
